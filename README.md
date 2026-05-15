@@ -16,3 +16,9 @@ git clone https://github.com/yourname/insta-osint-cli.git
 cd insta-osint-cli
 pip install -r requirements.txt
 ```
+## usage 
+``
+python main.py profile natgeo
+python main.py media natgeo --limit 50
+python main.py export json output.json
+``
