@@ -27,3 +27,9 @@ pip install -r requirements.txt
 
  - **Check username**
  - python main.py check username
+***Project Structure***
+
+> - core/
+> - modules/
+> - docs/
+> - output/
