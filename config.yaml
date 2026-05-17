@@ -1,1 +1,3 @@
-
+timeout: 15
+user_agent: Mozilla/5.0
+export_path: output/json/
