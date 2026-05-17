@@ -1,20 +1,46 @@
-
-
 import argparse
 
-def create_parser(): parser = argparse.ArgumentParser( prog="insta-osint", description="Instagram public OSINT toolkit" )
 
-sub = parser.add_subparsers(dest="command")
+def create_parser():
+    parser = argparse.ArgumentParser(
+        prog="insta-osint",
+        description="Instagram OSINT CLI Toolkit"
+    )
 
-lookup = sub.add_parser("lookup", help="Lookup public profile")
-lookup.add_argument("username", help="Instagram username")
+    parser.add_argument(
+        "targets",
+        nargs="*",
+        help="Instagram usernames"
+    )
 
-export = sub.add_parser("export", help="Export profile to JSON")
-export.add_argument("username", help="Instagram username")
+    parser.add_argument(
+        "--export",
+        choices=["json", "txt"],
+        default="json",
+        help="Export format"
+    )
 
-check = sub.add_parser("check", help="Check username availability")
-check.add_argument("username", help="Instagram username")
+    parser.add_argument(
+        "--batch",
+        help="Load usernames from file"
+    )
 
-return parser
+    parser.add_argument(
+        "--verbose",
+        action="store_true",
+        help="Enable verbose output"
+    )
 
+    parser.add_argument(
+        "--links",
+        action="store_true",
+        help="Extract public links"
+    )
 
+    parser.add_argument(
+        "--metadata",
+        action="store_true",
+        help="Parse metadata"
+    )
+
+    return parser
