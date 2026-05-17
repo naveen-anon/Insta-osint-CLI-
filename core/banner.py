@@ -7,8 +7,8 @@ console = Console()
 def show_banner():
     console.print(
         Panel.fit(
-            "[bold cyan]INSTA OSINT CLI[/bold cyan]\n"
-            "[green]Instagram Public Research Toolkit[/green]",
-            title="[yellow]Cyber Recon Hub[/yellow]"
+            "[bold red]CYBER INTELLIGENCE CLI[/bold red]\n"
+            "[cyan]OSINT • Recon • Threat Intelligence[/cyan]",
+            title="[yellow]Cyber Intelligence Suite[/yellow]"
         )
     )
