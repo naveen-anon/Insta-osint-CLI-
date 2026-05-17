@@ -34,4 +34,4 @@ pip install -r requirements.txt
 > - docs/
 > - output/
  ## Disclaimer
-> "Use only for public information research and authorized security testing." <
+> "Use only for public information research and authorized security testing." 
