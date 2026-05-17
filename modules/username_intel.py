@@ -1,8 +1,12 @@
-import requests
+import re
 
 
-def username_exists(username: str):
-    url = f"https://www.instagram.com/{username}/"
-    r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
-    return r.status_code == 200
-  
+def analyze_username(username: str):
+    parts = re.findall(r'[a-zA-Z]+|\d+', username)
+
+    return {
+        "username": username,
+        "length": len(username),
+        "has_numbers": any(ch.isdigit() for ch in username),
+        "segments": parts
+    }
