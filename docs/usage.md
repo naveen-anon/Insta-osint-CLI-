@@ -1,6 +1,10 @@
-# Usage
-```
-python main.py lookup <username>
-python main.py export <username>
-python main.py check <username>
-```
+## Usage ## 
+
+Lookup profile
+python main.py lookup username
+
+Export profile
+python main.py export username
+
+Check username
+python main.py check username
