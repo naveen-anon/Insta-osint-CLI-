@@ -19,11 +19,11 @@ pip install -r requirements.txt
 ```
 ### Usage ### 
 
-Lookup profile
-python main.py lookup username
+ - Lookup profile
+ - python main.py lookup username
 
-Export profile
-python main.py export username
+ - Export profile
+ - python main.py export username
 
-Check username
-python main.py check username
+ - Check username
+ - python main.py check username
