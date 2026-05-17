@@ -14,7 +14,7 @@ Professional OSINT, Recon, and Threat Intelligence toolkit built with Python.
 ## Installation
 
 ```bash
-git clone 
+git clone https://github.com/naveen-anon/Insta-osint-CLI-.git
 pip install -r requirements.txt
 ```
 ### Usage ### 
@@ -22,11 +22,16 @@ pip install -r requirements.txt
  - **Lookup profile**
  - python main.py lookup username
 
- - **Export profile**
+ - **Export intelligence**
  - python main.py export username
 
  - **Check username**
  - python main.py check username
+   ***Modules***
+ > - OSINT
+ > - Recon
+ > - Threat Intelligence
+ > - Export Engine
 ***Project Structure***
 
 > - core/
