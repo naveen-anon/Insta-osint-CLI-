@@ -1,20 +1,20 @@
-# Insta OSINT CLI
+# Cyber Intelligence CLI
 
-Instagram public profile research toolkit built with Python.
+Professional OSINT, Recon, and Threat Intelligence toolkit built with Python.
 
 ## Features
 
-- Public profile lookup
-- Username existence check
+- Username intelligence
+- Public profile reconnaissance
 - Metadata parsing
 - Link extraction
 - JSON export
+- Threat intelligence workflow
 
 ## Installation
 
 ```bash
-git clone https://github.com/naveen-anon/Insta-osint-CLI-.git
-cd insta-osint-cli
+git clone 
 pip install -r requirements.txt
 ```
 ### Usage ### 
