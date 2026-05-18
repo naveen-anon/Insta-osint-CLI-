@@ -8,6 +8,8 @@ from modules.profile_lookup import fetch_public_profile
 from modules.metadata_parser import parse_metadata
 from modules.link_extractor import extract_links
 
+from modules.profile_stats import extract_profile_stats
+
 from modules.username_intel import analyze_username
 from modules.keyword_analyzer import analyze_keywords
 from modules.report_generator import generate_report
@@ -17,13 +19,17 @@ logger = setup_logger()
 
 
 def main():
+
     parser = create_parser()
+
     args = parser.parse_args()
 
     show_banner()
 
     if not args.targets:
+
         parser.print_help()
+
         return
 
     username = args.targets[0]
@@ -40,6 +46,12 @@ def main():
         profile_data
     )
 
+    stats = extract_profile_stats(
+        metadata
+    ) stats = extract_profile_stats(
+        metadata
+    )
+
     bio_text = metadata.get(
         "description",
         ""
@@ -48,6 +60,7 @@ def main():
     links = []
 
     if args.links:
+
         links = extract_links(
             profile_data.get(
                 "html_content",
@@ -78,11 +91,17 @@ def main():
     }
 
     if args.metadata:
+
         final_data[
             "metadata"
         ] = metadata
 
+    final_data[
+        "profile_stats"
+    ] = stats
+
     if args.links:
+
         final_data[
             "links"
         ] = links
@@ -112,6 +131,7 @@ def main():
     )
 
     if args.export:
+
         report_path = generate_report(
             username,
             final_data
