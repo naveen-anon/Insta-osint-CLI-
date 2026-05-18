@@ -1,62 +1,68 @@
 # Insta-OSINT CLI
 
-Professional Instagram OSINT and Cyber Intelligence toolkit built with Python.
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![OSINT](https://img.shields.io/badge/OSINT-Cyber%20Intelligence-red)
+![Platform](https://img.shields.io/badge/Platform-Linux-green)
+![Status](https://img.shields.io/badge/Status-Active-success)
+![License](https://img.shields.io/badge/License-Educational-yellow)
+
+Professional Instagram OSINT and cyber intelligence toolkit built with Python.
 
 ---
 
 ## Features
 
-### Intelligence Modules
-
-- Username Intelligence
-- Profile Metadata Analysis
-- Public Link Extraction
-- Keyword Intelligence
-- JSON Intelligence Reports
-- Colorful CLI Interface
+✅ Public Profile Detection  
+✅ Metadata Extraction  
+✅ Followers / Following / Posts Parser  
+✅ Username Intelligence  
+✅ Keyword Analysis  
+✅ Intelligence Scoring  
+✅ JSON Report Export  
+✅ Colorful Terminal Dashboard  
 
 ---
 
 ## Installation
 
-### Clone Repository
+Clone repository:
 
 ```bash
-git clone https://github.com/naveen-anon/insta_osint.git
+git clone https://github.com/naveen-anon/Insta-osint-CLI-.git
 ```
 
-### Enter Project Directory
+Move into project:
 
 ```bash
-cd insta_osint
+cd Insta-osint-CLI-
 ```
 
-### Install Dependencies
+Install dependencies:
 
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ---
 
 ## Usage
 
-### Basic Scan
+Basic scan:
 
 ```bash
-python3 main.py cyber_defence_
+python3 main.py username
 ```
 
-### Generate Intelligence Report
+Full intelligence scan:
 
 ```bash
-python3 main.py cyber_defence_ --export json
+python3 main.py username --metadata --links --export json
 ```
 
-### Batch Scan
+Example:
 
 ```bash
-python3 main.py --batch usernames.txt
+python3 main.py <username> --metadata --links --export json
 ```
 
 ---
@@ -64,91 +70,56 @@ python3 main.py --batch usernames.txt
 ## Project Structure
 
 ```bash
-insta-osint-cli/
+Insta-osint-CLI-/
 ├── main.py
 ├── requirements.txt
-├── config.yaml
 │
 ├── core/
-│   ├── cli.py
 │   ├── banner.py
+│   ├── cli.py
 │   ├── logger.py
 │
 ├── modules/
 │   ├── profile_lookup.py
 │   ├── metadata_parser.py
+│   ├── profile_stats.py
 │   ├── link_extractor.py
 │   ├── username_intel.py
 │   ├── keyword_analyzer.py
+│   ├── score_engine.py
+│   ├── display.py
 │   ├── report_generator.py
 │
-├── output/
-│   ├── json/
-│   ├── reports/
-│
-└── docs/
+└── output/
 ```
 
 ---
 
-## Modules
+## Output Example
 
-### profile_lookup.py
-Fetches public profile data.
-
-### metadata_parser.py
-Extracts metadata from profile.
-
-### link_extractor.py
-Extracts public links.
-
-### username_intel.py
-Analyzes username patterns.
-
-### keyword_analyzer.py
-Analyzes public keywords.
-
-### report_generator.py
-Creates timestamped intelligence reports.
-
----
-
-## Output
-
-Reports are saved inside:
-
-```bash
-output/reports/
+```text
+Username     : cyber_defance_
+Reachable    : True
+Followers    : 19
+Following    : 12
+Posts        : 1
+Intel Score  : 00
 ```
-
-Example:
-
-```bash
-cyber_defence__20260518_010203.json
-```
-
----
-
-## Tech Stack
-
-- Python
-- Requests
-- Rich
 
 ---
 
 ## Use Cases
 
-- Public OSINT Research
-- Username Intelligence
-- Social Media Reconnaissance
-- Cyber Intelligence Workflows
+- Public OSINT research
+- Social media reconnaissance
+- Username intelligence
+- Cyber investigation workflows
 
 ---
 
 ## Disclaimer
 
-This project is designed only for:
+This tool is designed only for:
 
 - Publicly available information
 - Authorized security research
@@ -160,4 +131,4 @@ Private account access, credential abuse, or privacy violations are not supporte
 
 ## Author
 
-Built by Naveen | Cyber Recon Hub
+Naveen | Cyber Recon Hub
