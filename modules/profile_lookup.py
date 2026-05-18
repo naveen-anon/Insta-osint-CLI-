@@ -18,7 +18,6 @@ def fetch_public_profile(username: str):
         "username": username,
         "status_code": response.status_code,
         "profile_url": url,
-        "bio": bio,
         "reachable": response.ok,
         "html_content": response.text
     }
