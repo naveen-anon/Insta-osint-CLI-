@@ -1,7 +1,9 @@
 import re
 
 
-def extract_links(metadata: dict):
-    text = str(metadata)
-    return re.findall(r'https?://[^\\s]+', text)
-  
+def extract_links(text: str):
+    pattern = r'https?://(?:[-\\w.]|(?:%[\\da-fA-F]{2}))+[^\\s]*'
+
+    links = re.findall(pattern, text)
+
+    return list(set(links))
