@@ -31,21 +31,21 @@ def main():
 
     profile_data = fetch_public_profile(username)
 
-    metadata = parse_metadata(profile_data)
-
-    links = extract_links(str(profile_data))
-
-    username_analysis = analyze_username(username)
-
-    keyword_analysis = analyze_keywords(str(profile_data))
-
     final_data = {
-        "profile": profile_data,
-        "metadata": metadata,
-        "links": links,
-        "username_intelligence": username_analysis,
-        "keyword_analysis": keyword_analysis
+        "profile": profile_data
     }
+
+    if args.metadata:
+        final_data["metadata"] = parse_metadata(profile_data)
+
+    if args.links:
+        final_data["links"] = extract_links(str(profile_data))
+
+    final_data["username_intelligence"] = analyze_username(username)
+
+    final_data["keyword_analysis"] = analyze_keywords(
+        str(profile_data)
+    )
 
     print("[bold green][✓] Intelligence Scan Complete[/bold green]")
     print(final_data)
