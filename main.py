@@ -48,7 +48,8 @@ def main():
 
     stats = extract_profile_stats(
         metadata
-    ) stats = extract_profile_stats(
+    )
+    stats = extract_profile_stats(
         metadata
     )
 
