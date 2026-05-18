@@ -128,7 +128,9 @@ def main():
         "[bold green][✓] Intelligence Scan Complete[/bold green]"
     )
     
-    print(final_data)
+    show_results(
+    final_data
+    )
 
     if args.export:
 
