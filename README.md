@@ -95,7 +95,7 @@ Insta-osint-CLI-/
 
 ---
 ## screenshots 
-## Metadata Intelligence Scan
+***full intelligence report***
 
 ![Demo 1](/assets/Screenshot_2026-05-18-20-06-08-53_84d3000e3f4017145260f7618db1d683.jpg)
 ## Output Example
