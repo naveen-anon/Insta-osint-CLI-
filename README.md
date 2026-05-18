@@ -152,3 +152,6 @@ Private account access, credential abuse, or privacy violation are ot supported.
 ## Author
 
 Naveen | Cyber Recon Hub 
+## License
+
+This project is licensed under the MIT License.
