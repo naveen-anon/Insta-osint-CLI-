@@ -11,6 +11,7 @@ from modules.link_extractor import extract_links
 from modules.username_intel import analyze_username
 from modules.keyword_analyzer import analyze_keywords
 from modules.report_generator import generate_report
+from modules.score_engine import calculate_score
 
 logger = setup_logger()
 
@@ -27,30 +28,99 @@ def main():
 
     username = args.targets[0]
 
-    logger.info(f"Scanning {username}")
+    logger.info(
+        f"Scanning {username}"
+    )
 
-    profile_data = fetch_public_profile(username)
+    profile_data = fetch_public_profile(
+        username
+    )
 
-    final_data = {
-        "profile": {
-            "username": profile_data.get("username"),
-            "status_code": profile_data.get("status_code"),
-            "profile_url": profile_data.get("profile_url"),
-            "reachable": profile_data.get("reachable")
-        }
-    }
+    metadata = parse_metadata(
+        profile_data
+    )
 
-    if args.metadata:
-        final_data["metadata"] = parse_metadata(
-            profile_data
-        )
+    bio_text = metadata.get(
+        "description",
+        ""
+    )
+
+    links = []
 
     if args.links:
-        final_data["links"] = extract_links(
+        links = extract_links(
             profile_data.get(
                 "html_content",
                 ""
             )
         )
 
-    final_data["username_intelligence"] =
+    score_data = calculate_score(
+        bio_text,
+        len(links)
+    )
+
+    final_data = {
+        "profile": {
+            "username": profile_data.get(
+                "username"
+            ),
+            "status_code": profile_data.get(
+                "status_code"
+            ),
+            "profile_url": profile_data.get(
+                "profile_url"
+            ),
+            "reachable": profile_data.get(
+                "reachable"
+            )
+        }
+    }
+
+    if args.metadata:
+        final_data[
+            "metadata"
+        ] = metadata
+
+    if args.links:
+        final_data[
+            "links"
+        ] = links
+
+    final_data[
+        "username_intelligence"
+    ] = analyze_username(
+        username
+    )
+
+    final_data[
+        "keyword_analysis"
+    ] = analyze_keywords(
+        bio_text
+    )
+
+    final_data[
+        "intelligence_score"
+    ] = score_data
+
+    print(
+        "[bold green][✓] Intelligence Scan Complete[/bold green]"
+    )
+
+    print(
+        final_data
+    )
+
+    if args.export:
+        report_path = generate_report(
+            username,
+            final_data
+        )
+
+        print(
+            f"[cyan][+] Report saved:[/cyan] {report_path}"
+        )
+
+
+if __name__ == "__main__":
+    main()
