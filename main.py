@@ -7,6 +7,7 @@ from core.logger import setup_logger
 from modules.profile_lookup import fetch_public_profile
 from modules.metadata_parser import parse_metadata
 from modules.link_extractor import extract_links
+from modules.display import show_results
 
 from modules.profile_stats import extract_profile_stats
 
@@ -126,10 +127,8 @@ def main():
     print(
         "[bold green][✓] Intelligence Scan Complete[/bold green]"
     )
-
-    print(
-        final_data
-    )
+    
+    print(final_data)
 
     if args.export:
 
