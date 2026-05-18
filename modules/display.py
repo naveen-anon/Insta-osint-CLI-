@@ -12,7 +12,8 @@ def show_results(data: dict):
 
     table.add_column(
         "Field",
-        style="cyan"
+        style="cyan",
+        no_wrap=True
     )
 
     table.add_column(
@@ -30,6 +31,11 @@ def show_results(data: dict):
         {}
     )
 
+    metadata = data.get(
+        "metadata",
+        {}
+    )
+
     score = data.get(
         "intelligence_score",
         {}
@@ -37,9 +43,11 @@ def show_results(data: dict):
 
     table.add_row(
         "Username",
-        profile.get(
-            "username",
-            "N/A"
+        str(
+            profile.get(
+                "username",
+                "N/A"
+            )
         )
     )
 
@@ -84,6 +92,16 @@ def show_results(data: dict):
     )
 
     table.add_row(
+        "Bio",
+        str(
+            metadata.get(
+                "bio",
+                "Not Found"
+            )
+        )
+    )
+
+    table.add_row(
         "Intel Score",
         str(
             score.get(
@@ -95,4 +113,4 @@ def show_results(data: dict):
 
     console.print(
         table
-  )
+    )
