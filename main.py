@@ -32,28 +32,25 @@ def main():
     profile_data = fetch_public_profile(username)
 
     final_data = {
-        "profile": profile_data
+        "profile": {
+            "username": profile_data.get("username"),
+            "status_code": profile_data.get("status_code"),
+            "profile_url": profile_data.get("profile_url"),
+            "reachable": profile_data.get("reachable")
+        }
     }
 
     if args.metadata:
-        final_data["metadata"] = parse_metadata(profile_data)
+        final_data["metadata"] = parse_metadata(
+            profile_data
+        )
 
     if args.links:
-        final_data["links"] = extract_links(str(profile_data))
+        final_data["links"] = extract_links(
+            profile_data.get(
+                "html_content",
+                ""
+            )
+        )
 
-    final_data["username_intelligence"] = analyze_username(username)
-
-    final_data["keyword_analysis"] = analyze_keywords(
-        str(profile_data)
-    )
-
-    print("[bold green][✓] Intelligence Scan Complete[/bold green]")
-    print(final_data)
-
-    if args.export:
-        report_path = generate_report(username, final_data)
-        print(f"[cyan][+] Report saved:[/cyan] {report_path}")
-
-
-if __name__ == "__main__":
-    main()
+    final_data["username_intelligence"] =
