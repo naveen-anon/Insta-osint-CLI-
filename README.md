@@ -98,12 +98,29 @@ Insta-osint-CLI-/
 ## Output Example
 
 ```text
-Username     : cyber_defance_
-Reachable    : True
-Followers    : 19
-Following    : 12
-Posts        : 1
-Intel Score  : 00
+
+┌──(root㉿localhost)-[/home/kali/Insta-osint-CLI-]
+└─# python3 main.py cyber_defance_ --metadata --links --export json
+╭───── Cyber Intelligence Suite ──────╮
+│ CYBER INTELLIGENCE CLI              │
+│ OSINT • Recon • Threat Intelligence │
+╰─────────────────────────────────────╯
+[INFO] Scanning cyber_defance_
+[✓] Intelligence Scan Complete
+ Instagram Intelligence Report
+┏━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓
+┃ Field       ┃ Value          ┃
+┡━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━┩
+│ Username    │ cyber_defance_ │
+│ Reachable   │ True           │
+│ Followers   │ 19             │
+│ Following   │ 13             │
+│ Posts       │ 1              │
+│ Intel Score │ 75             │
+└─────────────┴────────────────┘
+[+] Report saved:
+output/reports/cyber_defance__20260518_140933.json
+
 ```
 
 ---
