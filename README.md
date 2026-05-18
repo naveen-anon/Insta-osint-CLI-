@@ -99,53 +99,53 @@ Insta-osint-CLI-/
 
 ```text
 
+
 ┌──(root㉿localhost)-[/home/kali/Insta-osint-CLI-]
-└─# python3 main.py cyber_defance_ --metadata --links --export json
+└─# python3 main.py cyber_defance_ --metadata
 ╭───── Cyber Intelligence Suite ──────╮
 │ CYBER INTELLIGENCE CLI              │
 │ OSINT • Recon • Threat Intelligence │
 ╰─────────────────────────────────────╯
 [INFO] Scanning cyber_defance_
 [✓] Intelligence Scan Complete
- Instagram Intelligence Report
-┏━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓
-┃ Field       ┃ Value          ┃
-┡━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━┩
-│ Username    │ cyber_defance_ │
-│ Reachable   │ True           │
-│ Followers   │ 19             │
-│ Following   │ 13             │
-│ Posts       │ 1              │
-│ Intel Score │ 75             │
-└─────────────┴────────────────┘
+           Instagram Intelligence Report
+┏━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Field       ┃ Value                              ┃
+┡━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ Username    │ cyber_defance_                     │
+│ Reachable   │ True                               │
+│ Followers   │ 19                                 │
+│ Following   │ 13                                 │
+│ Posts       │ 1                                  │
+│ Bio         │ 🛡️ Cyber Defense | Ethical Security │
+│             │ 💻 Code • Protect • Repeat         │
+│             │ 🔐 Privacy is Power                │
+│             │ ⚡ Securing the Digital World      │
+│ Intel Score │ 75                                 │
+└─────────────┴────────────────────────────────────┘
 [+] Report saved:
-output/reports/cyber_defance__20260518_140933.json
+output/reports/cyber_defance__20260518_143257.json
 
 ```
 
 ---
 
 ## Use Cases
-
 - Public OSINT research
-- Social media reconnaissance
+- Social media reconnaissnce
 - Username intelligence
-- Cyber investigation workflows
-
----
-
-## Disclaimer
-
+- Cyber investigation orkflows
+--
+## Disclaim
 This tool is designed only for:
-
-- Publicly available information
-- Authorized security research
+- Publicly available infrmation
+- Authorized securit research
 - Educational purposes
 
-Private account access, credential abuse, or privacy violations are not supported.
+Private account access, credential abuse, or privacy violation are ot supported.
 
 ---
 
 ## Author
 
-Naveen | Cyber Recon Hub
+Naveen | Cyber Recon Hub 
