@@ -2,31 +2,34 @@ import re
 
 
 def extract_profile_stats(metadata: dict):
+
     description = metadata.get(
         "description",
         ""
     )
 
-    followers = 0
-    following = 0
-    posts = 0
+    followers = "Not Found"
+    following = "Not Found"
+    posts = "Not Found"
 
-    numbers = re.findall(
-        r'[\d,]+',
+    matches = re.search(
+        r'([\d,]+)\sFollowers,\s([\d,]+)\sFollowing,\s([\d,]+)\sPosts',
         description
     )
 
-    try:
+    if matches:
 
-        if len(numbers) >= 3:
+        followers = matches.group(
+            1
+        )
 
-            followers = numbers[0]
-            following = numbers[1]
-            posts = numbers[2]
+        following = matches.group(
+            2
+        )
 
-    except:
-
-        pass
+        posts = matches.group(
+            3
+        )
 
     return {
         "followers": followers,
