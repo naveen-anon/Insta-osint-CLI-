@@ -6,6 +6,9 @@
 ![Status](https://img.shields.io/badge/Status-Active-success)
 ![License](https://img.shields.io/badge/License-Educational-yellow)
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-Channel-25D366?logo=whatsapp&logoColor=white)](https://whatsapp.com/channel/0029Vb6o1ejAjPXQi2KCAk1f)
+[![Telegram](https://img.shields.io/badge/Telegram-Channel-26A5E4?logo=telegram&logoColor=white)](t.me//cyber_recon_hub)
+
+
 Professional Instagram OSINT and cyber intelligence toolkit built with Python.
 
 ---
