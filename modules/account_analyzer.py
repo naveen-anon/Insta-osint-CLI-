@@ -1,6 +1,3 @@
-import re
-
-
 def analyze_account(html: str):
 
     private = False
