@@ -15,7 +15,7 @@ from modules.username_intel import analyze_username
 from modules.keyword_analyzer import analyze_keywords
 from modules.report_generator import generate_report
 from modules.score_engine import calculate_score
-
+from modules.account_analyzer import analyze_account
 logger = setup_logger()
 
 
