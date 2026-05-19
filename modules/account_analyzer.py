@@ -1,161 +1,56 @@
-from rich.table import Table
-from rich.console import Console
-
-console = Console()
+import re
 
 
-def show_results(data: dict):
+def analyze_account(html: str):
 
-    table = Table(
-        title="Instagram Intelligence Report"
-    )
+    private = False
+    verified = False
+    business = False
+    creator = False
 
-    table.add_column(
-        "Field",
-        style="cyan",
-        no_wrap=True
-    )
+    lower_html = html.lower()
 
-    table.add_column(
-        "Value",
-        style="green"
-    )
+    if '"is_private":true' in lower_html:
 
-    profile = data.get(
-        "profile",
-        {}
-    )
+        private = True
 
-    stats = data.get(
-        "profile_stats",
-        {}
-    )
+    if '"is_verified":true' in lower_html:
 
-    metadata = data.get(
-        "metadata",
-        {}
-    )
+        verified = True
 
-    score = data.get(
-        "intelligence_score",
-        {}
-    )
+    if '"is_business_account":true' in lower_html:
 
-    account = data.get(
-        "account_analysis",
-        {}
-    )
+        business = True
 
-    table.add_row(
-        "Username",
-        str(
-            profile.get(
-                "username",
-                "N/A"
-            )
-        )
-    )
+    creator_keywords = [
+        "digital creator",
+        "creator"
+    ]
 
-    table.add_row(
-        "Reachable",
-        str(
-            profile.get(
-                "reachable",
-                False
-            )
-        )
-    )
+    business_keywords = [
+        "professional_account",
+        "business",
+        "entrepreneur",
+        "brand"
+    ]
 
-    table.add_row(
-        "Followers",
-        str(
-            stats.get(
-                "followers",
-                "N/A"
-            )
-        )
-    )
+    for keyword in creator_keywords:
 
-    table.add_row(
-        "Following",
-        str(
-            stats.get(
-                "following",
-                "N/A"
-            )
-        )
-    )
+        if keyword in lower_html:
 
-    table.add_row(
-        "Posts",
-        str(
-            stats.get(
-                "posts",
-                "N/A"
-            )
-        )
-    )
+            creator = True
+            break
 
-    table.add_row(
-        "Bio",
-        str(
-            metadata.get(
-                "bio",
-                "Not Found"
-            )
-        )
-    )
+    for keyword in business_keywords:
 
-    table.add_row(
-        "Private Account",
-        str(
-            account.get(
-                "private",
-                False
-            )
-        )
-    )
+        if keyword in lower_html:
 
-    table.add_row(
-        "Verified Account",
-        str(
-            account.get(
-                "verified",
-                False
-            )
-        )
-    )
+            business = True
+            break
 
-    table.add_row(
-        "Business Account",
-        str(
-            account.get(
-                "business_account",
-                False
-            )
-        )
-    )
-
-    table.add_row(
-        "Creator Account",
-        str(
-            account.get(
-                "creator_account",
-                False
-            )
-        )
-    )
-
-    table.add_row(
-        "Intel Score",
-        str(
-            score.get(
-                "score",
-                0
-            )
-        )
-    )
-
-    console.print(
-        table
-    )
+    return {
+        "private": private,
+        "verified": verified,
+        "business_account": business,
+        "creator_account": creator
+    }
