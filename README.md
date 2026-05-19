@@ -125,7 +125,7 @@ python3 main.py cyber_defance_ --metadata --links --export json
 
 ## Metadata Intelligence Scan
 
-![Demo 1](assets/demo1.jpg)
+![Demo 1](assets/Screenshot_2026-05-19-10-38-59-02_84d3000e3f4017145260f7618db1d683.jpg)
 
 ---
 
