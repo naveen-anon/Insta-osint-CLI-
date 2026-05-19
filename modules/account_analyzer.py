@@ -1,23 +1,161 @@
-def analyze_account(html: str):
+from rich.table import Table
+from rich.console import Console
 
-    private = False
-    verified = False
-    business = False
+console = Console()
 
-    if '"is_private":true' in html:
 
-        private = True
+def show_results(data: dict):
 
-    if '"is_verified":true' in html:
+    table = Table(
+        title="Instagram Intelligence Report"
+    )
 
-        verified = True
+    table.add_column(
+        "Field",
+        style="cyan",
+        no_wrap=True
+    )
 
-    if '"is_business_account":true' in html:
+    table.add_column(
+        "Value",
+        style="green"
+    )
 
-        business = True
+    profile = data.get(
+        "profile",
+        {}
+    )
 
-    return {
-        "private": private,
-        "verified": verified,
-        "business_account": business
-    }
+    stats = data.get(
+        "profile_stats",
+        {}
+    )
+
+    metadata = data.get(
+        "metadata",
+        {}
+    )
+
+    score = data.get(
+        "intelligence_score",
+        {}
+    )
+
+    account = data.get(
+        "account_analysis",
+        {}
+    )
+
+    table.add_row(
+        "Username",
+        str(
+            profile.get(
+                "username",
+                "N/A"
+            )
+        )
+    )
+
+    table.add_row(
+        "Reachable",
+        str(
+            profile.get(
+                "reachable",
+                False
+            )
+        )
+    )
+
+    table.add_row(
+        "Followers",
+        str(
+            stats.get(
+                "followers",
+                "N/A"
+            )
+        )
+    )
+
+    table.add_row(
+        "Following",
+        str(
+            stats.get(
+                "following",
+                "N/A"
+            )
+        )
+    )
+
+    table.add_row(
+        "Posts",
+        str(
+            stats.get(
+                "posts",
+                "N/A"
+            )
+        )
+    )
+
+    table.add_row(
+        "Bio",
+        str(
+            metadata.get(
+                "bio",
+                "Not Found"
+            )
+        )
+    )
+
+    table.add_row(
+        "Private Account",
+        str(
+            account.get(
+                "private",
+                False
+            )
+        )
+    )
+
+    table.add_row(
+        "Verified Account",
+        str(
+            account.get(
+                "verified",
+                False
+            )
+        )
+    )
+
+    table.add_row(
+        "Business Account",
+        str(
+            account.get(
+                "business_account",
+                False
+            )
+        )
+    )
+
+    table.add_row(
+        "Creator Account",
+        str(
+            account.get(
+                "creator_account",
+                False
+            )
+        )
+    )
+
+    table.add_row(
+        "Intel Score",
+        str(
+            score.get(
+                "score",
+                0
+            )
+        )
+    )
+
+    console.print(
+        table
+    )
