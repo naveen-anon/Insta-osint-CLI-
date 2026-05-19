@@ -41,6 +41,11 @@ def show_results(data: dict):
         {}
     )
 
+    account = data.get(
+        "account_analysis",
+        {}
+    )
+
     table.add_row(
         "Username",
         str(
@@ -97,6 +102,36 @@ def show_results(data: dict):
             metadata.get(
                 "bio",
                 "Not Found"
+            )
+        )
+    )
+
+    table.add_row(
+        "Private",
+        str(
+            account.get(
+                "private",
+                False
+            )
+        )
+    )
+
+    table.add_row(
+        "Verified",
+        str(
+            account.get(
+                "verified",
+                False
+            )
+        )
+    )
+
+    table.add_row(
+        "Business",
+        str(
+            account.get(
+                "business_account",
+                False
             )
         )
     )
