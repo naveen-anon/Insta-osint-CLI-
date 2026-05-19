@@ -131,7 +131,7 @@ python3 main.py cyber_defance_ --metadata --links --export json
 
 ## Full Intelligence Report
 
-![Demo 2](assets/demo2.jpg)
+![Demo 2](assets/IMG_20260519_102630.jpg)
 
 ---
 
