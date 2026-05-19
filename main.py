@@ -7,15 +7,16 @@ from core.logger import setup_logger
 from modules.profile_lookup import fetch_public_profile
 from modules.metadata_parser import parse_metadata
 from modules.link_extractor import extract_links
-from modules.display import show_results
 
 from modules.profile_stats import extract_profile_stats
-
 from modules.username_intel import analyze_username
 from modules.keyword_analyzer import analyze_keywords
 from modules.report_generator import generate_report
 from modules.score_engine import calculate_score
+from modules.display import show_results
+
 from modules.account_analyzer import analyze_account
+
 logger = setup_logger()
 
 
@@ -50,12 +51,9 @@ def main():
     stats = extract_profile_stats(
         metadata
     )
-    stats = extract_profile_stats(
-        metadata
-    )
 
     bio_text = metadata.get(
-        "description",
+        "bio",
         ""
     )
 
@@ -75,6 +73,13 @@ def main():
         len(links)
     )
 
+    account_analysis = analyze_account(
+        profile_data.get(
+            "html_content",
+            ""
+        )
+    )
+
     final_data = {
         "profile": {
             "username": profile_data.get(
@@ -89,7 +94,9 @@ def main():
             "reachable": profile_data.get(
                 "reachable"
             )
-        }
+        },
+
+        "account_analysis": account_analysis
     }
 
     if args.metadata:
@@ -127,9 +134,9 @@ def main():
     print(
         "[bold green][✓] Intelligence Scan Complete[/bold green]"
     )
-    
+
     show_results(
-    final_data
+        final_data
     )
 
     if args.export:
@@ -145,4 +152,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
